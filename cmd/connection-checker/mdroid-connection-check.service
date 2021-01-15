@@ -1,0 +1,14 @@
+[Unit]
+Description=MDroid Connection Check
+Wants=mdroid.service
+After=mdroid.service
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=3
+WorkingDirectory=/root/mdroid/
+ExecStart=/root/go/bin/connection-checker http://10.0.3.2:5353
+
+[Install]
+WantedBy=multi-user.target
